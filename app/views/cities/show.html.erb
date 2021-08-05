@@ -1,0 +1,31 @@
+  <header class="header-city blur-2" >
+    <div class="container position-relative px-4 px-lg-5">
+      <div class="row gx-4 gx-lg-5 justify-content-center">
+        <div class="col-md-10 col-lg-8 col-xl-7">
+          <div class="site-heading">
+          <br/>
+                  <% city=City.find(params[:id])%>
+            <h1>Les gossips de <%= city.name %></h1>
+         
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+ <section class="container">
+ <% users=User.where(city_id: city.id).all%>
+ <h2>Users de cette ville</h2>
+  <% users.each do |user|%>
+    <p class="post-title display-4"> 
+    <%= user.first_name %></p>
+    <hr class="my-4" />
+    <% gossips=Gossip.where(user_id:user.id).all %>
+      <% gossips.each do |gossip|%>
+        <p class=""> <%= gossip.title %></p>
+        <p class=""> <%= gossip.content %></p>
+        <hr class="my-2" />
+      <% end %> 
+    <% end %> 
+  <hr class="my-4" />
+</section>
+<em>2021 - THE GOSSIP PROJECT </em>

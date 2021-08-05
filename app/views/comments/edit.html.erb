@@ -1,0 +1,19 @@
+<section class="container">
+<p>editer un commentaire</p>
+
+<%= form_with( url: comment_path(@comment.id) ,  model:@comment,  local:true,   method: :put) do |form| %>
+<% if @comment.nil? == false && @comment.errors.any? %>
+   <p>Nous n'avons pas réussi à créer le commentaire pour la (ou les) raison(s) suivante(s) :</p>
+    <% @comment.errors.full_messages.each do |message| %>
+    <div class="alert alert-danger" role="alert">
+      <p><%= message %></p>
+    </div>    
+<% end %>
+<% end %>
+  <%= form.label :title, "Title:",class:"form-label" %>
+  <%= form.text_field :content, value:@comment.content,class:"form-control"%>
+  <br/>
+  <%= form.submit "Editer gossip", class:"btn btn-primary" %>
+<% end %>
+</div>
+</section>

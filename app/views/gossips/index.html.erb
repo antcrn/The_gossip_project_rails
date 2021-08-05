@@ -1,0 +1,32 @@
+ <header class="header blur-2" >
+    <div class="container position-relative px-4 px-lg-5">
+      <div class="row gx-4 gx-lg-5 justify-content-center">
+        <div class="col-md-10 col-lg-8 col-xl-7">
+          <div class="site-heading">
+          <br/>
+            <h1>Bienvenue sur GOSSIP PROJECT</h1>
+            <span class="subheading">Ici c'est notre super site de potins, il est chouette, non ?</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+<section class="container px-4 px-lg-5">
+  <div class="row gx-4 gx-lg-5 justify-content-center">
+    <div class="col-md-10 col-lg-8 col-xl-7">
+      <!-- Gossip preview-->
+      <div class="post-preview">
+      <br/>
+        <% @gossips.each do |gossip|%>
+          <h2 class="post-title display-4"> <%= gossip.title %></h2>
+          <h4 class="post-subtitle"><i class="blockquote">by: <%= User.find(gossip.user_id).first_name %></i></h4>
+          <p><%= gossip.content[0...145] %></p>
+          <%= link_to ".... voir plus", gossip_path(gossip.id) , class: 'link-dark' %>
+          <p><%= gossip.likes.count %> <%= (gossip.likes.count) == 1 ? 'Like' : 'Likes'%></p>
+
+          <hr class="my-4" />
+        <% end %> 
+      </div>
+    </div>
+  </div>
+</section>

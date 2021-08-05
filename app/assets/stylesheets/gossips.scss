@@ -1,0 +1,243 @@
+// Place all the styles related to the Gossips controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+.tag-cloud a {
+    padding: 4px 15px;
+    font-size: 13px;
+    color: #ffffff;
+    background: #20247b;
+    border-radius: 3px;
+    margin-right: 4px;
+    margin-bottom: 4px;
+}
+
+.tag-cloud a:hover {
+    background: #fc5356;
+}
+
+.blog-single {
+    padding-top: 30px;
+    padding-bottom: 30px;
+}
+
+.article {
+    box-shadow: 0 0 30px rgba(31, 45, 61, 0.125);
+    border-radius: 5px;
+    overflow: hidden;
+    background: #ffffff;
+    padding: 15px;
+    margin: 15px 0 30px;
+}
+
+.article .article-title {
+    padding: 15px 0 20px;
+}
+
+.article .article-title h6 {
+    font-size: 14px;
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+
+.article .article-title h6 a {
+    text-transform: uppercase;
+    color: #fc5356;
+    border-bottom: 1px solid #fc5356;
+}
+
+.article .article-title h2 {
+    color: #20247b;
+    font-weight: 600;
+}
+
+.article .article-title .media {
+    padding-top: 15px;
+    border-bottom: 1px dashed #ddd;
+    padding-bottom: 20px;
+}
+
+.article .article-title .media .avatar {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+.article .article-title .media .media-body {
+    padding-left: 8px;
+}
+
+.article .article-title .media .media-body label {
+    font-weight: 600;
+    color: #fc5356;
+    margin: 0;
+}
+
+.article .article-title .media .media-body span {
+    display: block;
+    font-size: 12px;
+}
+
+.article .article-content h1,
+.article .article-content h2,
+.article .article-content h3,
+.article .article-content h4,
+.article .article-content h5,
+.article .article-content h6 {
+    color: #20247b;
+    font-weight: 600;
+    margin-bottom: 15px;
+}
+
+.article .tag-cloud {
+    padding-top: 10px;
+}
+
+img {
+    max-width: 100%;
+}
+
+img {
+    vertical-align: middle;
+    border-style: none;
+}
+
+.content-item {
+    padding: 30px 0;
+    background-color: #FFFFFF;
+}
+
+.content-item.grey {
+    background-color: #F0F0F0;
+    padding: 50px 0;
+    height: 100%;
+}
+
+.content-item h2 {
+    font-weight: 700;
+    font-size: 35px;
+    line-height: 45px;
+    text-transform: uppercase;
+    margin: 20px 0;
+}
+
+.content-item h3 {
+    font-weight: 400;
+    font-size: 20px;
+    color: #555555;
+    margin: 10px 0 15px;
+    padding: 0;
+}
+
+.content-headline {
+    height: 1px;
+    text-align: center;
+    margin: 20px 0 70px;
+}
+
+.content-headline h2 {
+    background-color: #FFFFFF;
+    display: inline-block;
+    margin: -20px auto 0;
+    padding: 0 20px;
+}
+
+.grey .content-headline h2 {
+    background-color: #F0F0F0;
+}
+
+.content-headline h3 {
+    font-size: 14px;
+    color: #AAAAAA;
+    display: block;
+}
+
+#comments {
+    box-shadow: 0 -1px 6px 1px rgba(0, 0, 0, 0.1);
+    background-color: #FFFFFF;
+}
+
+#comments form {
+    margin-bottom: 30px;
+}
+
+#comments .btn {
+    margin-top: 7px;
+}
+
+#comments form fieldset {
+    clear: both;
+}
+
+#comments form textarea {
+    height: 100px;
+}
+
+#comments .media {
+    border-top: 1px dashed #DDDDDD;
+    padding: 20px 0;
+    margin: 0;
+}
+
+#comments .media>.pull-left {
+    margin-right: 20px;
+}
+
+#comments .media img {
+    max-width: 100px;
+}
+
+#comments .media h4 {
+    margin: 0 0 10px;
+}
+
+#comments .media h4 span {
+    font-size: 14px;
+    float: right;
+    color: #999999;
+}
+
+#comments .media p {
+    margin-bottom: 15px;
+    text-align: justify;
+}
+
+#comments .media-detail {
+    margin: 0;
+}
+
+#comments .media-detail li {
+    color: #AAAAAA;
+    font-size: 12px;
+    padding-right: 10px;
+    font-weight: 600;
+}
+
+#comments .media-detail a:hover {
+    text-decoration: underline;
+}
+
+#comments .media-detail li:last-child {
+    padding-right: 0;
+}
+
+#comments .media-detail li i {
+    color: #666666;
+    font-size: 15px;
+    margin-right: 10px;
+}
+
+.media {
+    flex-wrap: nowrap !important;
+}
+
+.article-image {
+    background-color: rgb(0, 0, 0);
+}
+
+img.blur {
+    width: 100%;
+    -webkit-filter: blur(1px);
+    filter: blur(1px);
+    opacity: 80%;
+}

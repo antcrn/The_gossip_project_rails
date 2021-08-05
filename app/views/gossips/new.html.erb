@@ -1,0 +1,12 @@
+<section class="container">
+
+<%= form_with local:true,model:@gossip, method: :post do |form| %>
+  <%= form.label :title, "Title:",class:"form-label" %>
+  <%= form.text_field :title,class:"form-control"%>
+  <%= form.label :content, "Content:",class:"form-label" %>
+  <%= form.text_field :content,class:"form-control" %>
+
+  <%= form.submit "Créer nouveau gossip", class:"btn btn-primary" %>
+<% end %>
+</div>
+</section>

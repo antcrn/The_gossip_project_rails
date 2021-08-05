@@ -1,0 +1,110 @@
+<div class="blog-single">
+        <div class="container">
+                   <article class="article">
+                        <div class="article-img">
+                            <img class="blur" src="https://source.unsplash.com/random" style="width:100%;height:350px" alt="">
+                        </div>
+                        <div class="article-title ">
+                            <h1 class="post-title text-center"><%= @gossip.title %></h1>
+                            <% if logged_in? %>
+                                <% pre_like = @gossip.likes.find { |like| like.user_id == current_user.id} %>
+                                    <% if pre_like %>
+                                    <%= button_to 'Unlike', gossip_like_path(@gossip, pre_like), method: :delete %>
+                                    <% else %>
+                                    <%= button_to 'Like', gossip_likes_path(@gossip), method: :post %>
+                                    <% end %>
+                            <% end %>
+              
+
+                            <div class="media">
+                                <div class="avatar ms-2">
+                                    <img src="https://i.pravatar.cc/150?u=a<%=rand(1..250)%>f4e29026704d" title="" alt="">
+                                </div>
+                                <div class="media-body">
+                                    <label><%= link_to User.find(@gossip.user_id).first_name, user_path(@gossip.user_id),class: 'link-dark' %></label>
+                                    <span><%= (@gossip.created_at).strftime('%d-%m-%Y') %>,<%= link_to City.find(@gossip.user.city_id).name, city_path(@gossip.user.city_id) , class: 'link-dark' %></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="article-content">
+                            <p><%= @gossip.content %> 
+                                <% if logged_in? %>
+                                <p><%= @gossip.likes.count %> <%= (@gossip.likes.count) == 1 ? 'Like' : 'Likes'%></p>
+                                    <%= link_to "editer le gossip", edit_gossip_path , class: 'btn btn-success btn-xs' %>
+                                    <%= link_to "supprimer", gossip_path(@gossip.id), method: :delete,class: 'btn btn-danger btn-xs' %>
+                                <% end %>
+                            </p>
+                        </div>
+                        <div class="tag-cloud">
+                            <a href="#">THP</a>
+                            <a href="#">Development</a>
+                            <a href="#">Travel</a>
+                            <a href="#">Web Design</a>
+                        </div>
+                    </article>
+                  </div>
+     
+    </div>
+<section class="content-item" id="comments">
+    <div class="container">   
+    	<div class="row">
+            <div class="col-sm-7">   
+                    <% if logged_in? %>
+                        <%= form_with(model:@comments,local:true, url: comments_path(params[:id]) ,  method: :post) do |form| %>
+                	<h3 class="pull-left">New Comment</h3>
+                    <fieldset>
+                        <div class="row">
+                            <div class="col-sm-3 col-lg-2 hidden-xs">
+                            	<img class="media-object rounded-circle" src="https://bootdey.com/img/Content/avatar/avatar1.png" style="width: 70%" >
+                            </div>
+                            <div class="form-group col-xs-12 col-sm-9 col-lg-10">
+                    
+                       
+                            <%= form.text_area :content, class:"form-control"%>
+                            <%= form.hidden_field :gossip_id, value: params[:id] %>
+
+                            <br/>
+                            <%= form.submit "commenter le gossip", class:"btn btn-primary" %>
+                            
+                            </div>
+                        </div>  	
+                    </fieldset>
+                 <% end %>
+                  <% end %>
+                <h3><%= @comments.length %> Comments</h3>
+                
+                <!-- COMMENT LIST - START -->
+                <% @comments.each do |comment|%>
+                <div class="media row">
+                    <div class="pull-left col-sm-3 col-lg-2 hidden-xs"><img class="media-object rounded-circle" src="https://i.pravatar.cc/150?u=a<%=rand(1..250)%>f4e29026704d" alt=""></div>
+                    <div class="media-body  pull-right form-group col-xs-12 col-sm-9 col-lg-10">
+                        <h4 class="media-heading"> 
+                            <%= link_to User.find(comment.user_id).first_name, user_path(comment.user_id),class: 'link-dark' %>
+                        </h4>
+                        <p><%= comment.content %></p>
+                        <% if logged_in? %>
+                            <small>
+                                <%= link_to "editer le commentaire", edit_comment_path(comment.id) , class: 'link-dark' %>
+                                <%= link_to "supprimer le commentaire", comment_path(comment.id), method: :delete,class: 'btn btn-danger btn-xs' %>
+                            </small>
+                         
+                        <% end %>
+                        <ul class="list-unstyled list-inline media-detail pull-left">
+                            <li><i class="fa fa-calendar"></i><%= comment.created_at.strftime('%d-%m-%Y') %></li>
+                            <li><i class="fa fa-thumbs-up"></i>13</li>
+                        </ul>
+                    </div>
+                </div>
+                <!-- COMMENT 1 - END -->
+                <% end %>     
+                      
+            </div>
+        </div>
+    </div>
+</section>
+
+                  
+ 
+
+
+<em>2021 - THE GOSSIP PROJECT </em>
